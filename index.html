@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Temperture-Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Age Calculator</h1>
-        <div class="form">
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob">
-            <button id="calculate">Calculate</button>
-           
+        <h1>Temperture Converter</h1>
+        <div class="temp-container">
+            <label for="celsius">Celsius :-</label>
+            <input onchange="computeTemp(event)" type="number" name="celsius" id="celsius" placeholder="Enter Temperture" class="input">
         </div>
-        <p id="result">Your age is 21 years old</p>
+        <div class="temp-container">
+            <label for="Fahreinheit">Fahreinheit :-</label>
+            <input onchange="computeTemp(event)" type="number" name="Fahreinheit" id="Fahreinheit" placeholder="Enter Temperture" class="input">
+        </div>
+           <div class="temp-container">
+            <label for="Kelvin">Kelvin :-</label>
+            <input onchange="computeTemp(event)" type="number" name="Kelvin" id="Kelvin" placeholder="Enter Temperture" class="input">
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

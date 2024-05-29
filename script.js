@@ -1,30 +1,24 @@
-const btnEl = document.getElementById("btn");
-const birthdayEl = document.getElementById("birthday");
-const resultEl = document.getElementById("result");
+const celsiusEl=document.getElementById('celsius');
+const fahreinheitEl=document.getElementById('Fahreinheit');
+const kelvinEl=document.getElementById('Kelvin');
 
-function calculateAge() {
-  const birthdayValue = birthdayEl.value;
-  if (birthdayValue === "") {
-    alert("Please enter your birthday");
-  } else {
-    const age = getAge(birthdayValue);
-    resultEl.innerText = `Your age is ${age} ${age > 1 ? "years" : "year"} old`;
-  }
+
+function computeTemp(event){
+    console.log(event.target.value)
 }
-
-function getAge(birthdayValue) {
-  const currentDate = new Date();
-  const birthdayDate = new Date(birthdayValue);
-  let age = currentDate.getFullYear() - birthdayDate.getFullYear();
-  const month = currentDate.getMonth() - birthdayDate.getMonth();
-
-  if (
-    month < 0 ||(month === 0 && currentDate.getDate() < birthdayDate.getDate())
-  ) {
-    age--;
+switch (event.target.name) {
+    case "celsius":
+      kelvinEl.value = (currentValue + 273.32).toFixed(2);
+      fahreinheitEl.value = (currentValue * 1.8 + 32).toFixed(2);
+      break;
+    case "fahrenheit":
+      celsiusEl.value = ((currentValue - 32) / 1.8).toFixed(2);
+      kelvinEl.value = ((currentValue - 32) / 1.8 + 273.32).toFixed(2);
+      break;
+    case "kelvin":
+      celsiusEl.value = (currentValue - 273.32).toFixed(2);
+      fahreinheitEl.value = ((currentValue - 273.32) * 1.8 + 32).toFixed(2);
+      break;
+    default:
+      break;
   }
-
-  return age;
-}
-
-btnEl.addEventListener("click", calculateAge);
